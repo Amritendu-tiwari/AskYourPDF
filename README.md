@@ -1,75 +1,102 @@
-# AskYourPDF
-Streamlit app to upload single or multiple PDFs and chat to get concise, context-grounded answers.  Uses Retrieval-Augmented Generation (RAG) with history awareness to handle follow-up questions accurately.  Suited for research papers, manuals, policies, contracts, reports, and textbooks.
-Streamlit app to upload single or multiple PDFs and chat to get concise, context-grounded answers.
+📘 AskYourPDF
 
-Uses Retrieval-Augmented Generation (RAG) with history awareness to handle follow-up questions accurately.
+A Streamlit-based AI assistant that lets you upload single or multiple PDFs and chat to get concise, context-grounded answers. Built with Retrieval-Augmented Generation (RAG) and history awareness to handle follow-up questions accurately.
 
-Suited for research papers, manuals, policies, contracts, reports, and textbooks.
+Ideal for:
+📄 Research papers | 📑 Manuals | 📜 Policies | 📕 Textbooks | 📊 Reports | 📑 Contracts
 
-Features:
+🚀 Features
 
-Multi-file PDF upload and processing.
+📂 Multi-file PDF upload & processing
 
-Semantic chunking (5,000 chars, 500 overlap) and embeddings for precise retrieval.
+🔎 Semantic chunking (5,000 chars, 500 overlap) with embeddings for precise retrieval
 
-Local vector index for fast, on-device search.
+⚡ Local vector index for fast, on-device search
 
-History-aware retriever that reformulates follow-ups into standalone questions.
+🧠 History-aware retriever reformulates follow-ups into standalone questions
 
-LLM answers constrained to three sentences for clarity and brevity.
+📝 Concise answers (limited to 3 sentences for clarity)
 
-Honest fallback: clearly says “don’t know” when context is insufficient.
+❌ Honest fallback → says “don’t know” when context is insufficient
 
-Session-based chat: unique session IDs with in-memory history per session.
+💬 Session-based chat with unique session IDs & in-memory history
 
-Architecture:
+🏗️ Architecture
 
-PDF parsing via PyPDF loader.
+PDF Parsing → PyPDF Loader
 
-RecursiveCharacterTextSplitter for chunking.
+Chunking → RecursiveCharacterTextSplitter
 
-HuggingFace embeddings (all-MiniLM-L6-v2).
+Embeddings → HuggingFace (all-MiniLM-L6-v2)
 
-Chroma for vector storage and retrieval.
+Vector Storage → ChromaDB
 
-RAG “stuff” chain to pass retrieved context into the answer prompt.
+RAG Pipeline → “stuff” chain passing retrieved context into LLM prompt
 
-API key entered at runtime; optional .env for tokens (e.g., HF).
+Frontend → Streamlit UI (with multi-file uploader, session handling, chat display)
 
-Getting started:
+📂 UI Flow
 
-Clone repo, install dependencies.
+Enter API Key (runtime input or .env)
 
-Optionally set environment variables (.env).
+Enter / keep Session ID
 
-Run Streamlit app.
+Upload PDF(s)
 
-Enter model API key, choose or keep default session ID.
+Ask questions → get concise answers + chat history inline
 
-Upload PDFs and start asking questions.
+⚙️ Installation
+# Clone the repo
+git clone https://github.com/Amritendu-tiwari/AskYourPDF.git
+cd AskYourPDF
 
-UI flow:
+# Create virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
 
-Fields for API key and session ID.
+# Install dependencies
+pip install -r requirements.txt
 
-Multi-file uploader.
+▶️ Usage
+streamlit run app.py
 
-Chat input for questions.
 
-Inline display of responses and chat history.
+Enter your API key (e.g., Hugging Face / OpenAI).
 
-Benefits:
+Upload one or multiple PDFs.
 
-Rapid, reliable answers sourced directly from user documents.
+Start chatting with your documents!
 
-Reduced time spent scanning long PDFs.
+📊 Benefits
 
-Simple, local indexing ideal for demos, personal workflows, and internal assistants.
+✅ Rapid, reliable answers sourced directly from your PDFs
+✅ Saves hours of manual scanning/searching
+✅ Lightweight → runs locally, ideal for personal workflows & internal demos
+✅ Transparent → visible chat history & context grounding
 
-Design principles:
+🧭 Design Principles
 
-Reliability via retrieval grounding.
+Reliability → grounded in retrieval
 
-Brevity via strict answer-length prompt.
+Brevity → strict answer-length prompt
 
-Transparency via visible chat history and context-driven responses.
+Transparency → shows context + session history
+
+🔮 Future Enhancements
+
+ Support for hybrid search (BM25 + embeddings)
+
+ Export chat history as PDF/Markdown
+
+ Integrate with cloud storage (Google Drive, OneDrive)
+
+ Fine-tune for domain-specific datasets
+
+📸 Demo Screenshot (optional)
+
+(Add here after running a session → streamlit run app.py and take a screenshot of the chat UI)
+
+🤝 Contributing
+
+Pull requests are welcome! Please open an issue to discuss before submitting changes.
